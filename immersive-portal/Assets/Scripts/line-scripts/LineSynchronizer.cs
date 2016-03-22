@@ -66,7 +66,7 @@ public class LineSynchronizer: MonoBehaviour {
 		}
 		if (type == SynchronizerType.Recorder) {
 			if (Directory.Exists(recordPath)) {
-				Directory.Delete(recordPath, true);
+				//Directory.Delete(recordPath, true);
 			}
 			Directory.CreateDirectory(recordPath);
 			using (var s = File.OpenWrite(LastFrameNumberPath)) {
