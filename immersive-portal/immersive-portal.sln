@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{C9FDA8D8-C0E9-A55A-B8DC-4015103DF0EE}") = "immersive-portal", "Assembly-CSharp-firstpass.csproj", "{017A1C93-4A99-2A51-D9CD-B0F297198975}"
+EndProject
+Project("{C9FDA8D8-C0E9-A55A-B8DC-4015103DF0EE}") = "immersive-portal", "Assembly-CSharp.csproj", "{40C3C468-3831-32CC-5C0B-39B69A65110A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{017A1C93-4A99-2A51-D9CD-B0F297198975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{017A1C93-4A99-2A51-D9CD-B0F297198975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{017A1C93-4A99-2A51-D9CD-B0F297198975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{017A1C93-4A99-2A51-D9CD-B0F297198975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
