@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Vive-Examples.unity
+- path: Assets/Examples.unity
   isLoaded: 1
   isActive: 1
