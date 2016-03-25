@@ -5,6 +5,8 @@ Project("{C9FDA8D8-C0E9-A55A-B8DC-4015103DF0EE}") = "immersive-portal", "Assembl
 EndProject
 Project("{C9FDA8D8-C0E9-A55A-B8DC-4015103DF0EE}") = "immersive-portal", "Assembly-CSharp.csproj", "{40C3C468-3831-32CC-5C0B-39B69A65110A}"
 EndProject
+Project("{C9FDA8D8-C0E9-A55A-B8DC-4015103DF0EE}") = "immersive-portal", "Assembly-CSharp-Editor.csproj", "{3EAED1EE-5468-773F-8703-C74A18E50FBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40C3C468-3831-32CC-5C0B-39B69A65110A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EAED1EE-5468-773F-8703-C74A18E50FBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EAED1EE-5468-773F-8703-C74A18E50FBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EAED1EE-5468-773F-8703-C74A18E50FBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EAED1EE-5468-773F-8703-C74A18E50FBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,8 @@ namespace AssemblyCSharp {
         public GameObject currentRaycast;
         public GameObject aPress, bPress, leftPress, rightPress, upPress, downPress, plusPress, minusPress, homePress, onePress;
 
-        public WiiMoteEventData(EventSystem eventSystem) : base(eventSystem) {
+        public WiiMoteEventData(EventSystem eventSystem)
+            : base(eventSystem) {
 
         }
     }
@@ -66,6 +67,13 @@ namespace AssemblyCSharp {
 
         void Update() {
             this.Process();
+        }
+
+        void OnDisable() {
+            foreach (int button in buttons) {
+                this.ExecuteButtonUp(button);
+                this.ExecuteGlobalButtonUp(button);
+            }
         }
 
         void Process() {
@@ -295,39 +303,48 @@ namespace AssemblyCSharp {
             switch (button) {
                 case ButtonConstants.A:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteAPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalAPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteAPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalAPressDown(eventData));
                     break;
                 case ButtonConstants.B:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteBPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalBPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteBPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalBPressDown(eventData));
                     break;
                 case ButtonConstants.LEFT:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteLeftPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalLeftPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteLeftPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalLeftPressDown(eventData));
                     break;
                 case ButtonConstants.RIGHT:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteRightPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalRightPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteRightPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalRightPressDown(eventData));
                     break;
                 case ButtonConstants.UP:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteUpPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalUpPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteUpPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalUpPressDown(eventData));
                     break;
                 case ButtonConstants.DOWN:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteDownPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalDownPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteDownPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalDownPressDown(eventData));
                     break;
                 case ButtonConstants.PLUS:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMotePlusPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalPlusPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMotePlusPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalPlusPressDown(eventData));
                     break;
                 case ButtonConstants.MINUS:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteMinusPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalMinusPressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteMinusPressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalMinusPressDown(eventData));
                     break;
                 case ButtonConstants.ONE:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteOnePressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalOnePressDown(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteOnePressDownHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalOnePressDown(eventData));
                     break;
             }
         }
@@ -340,39 +357,48 @@ namespace AssemblyCSharp {
             switch (button) {
                 case ButtonConstants.A:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteAPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalAPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteAPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalAPress(eventData));
                     break;
                 case ButtonConstants.B:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteBPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalBPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteBPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalBPress(eventData));
                     break;
                 case ButtonConstants.LEFT:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteLeftPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalLeftPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteLeftPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalLeftPress(eventData));
                     break;
                 case ButtonConstants.RIGHT:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteRightPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalRightPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteRightPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalRightPress(eventData));
                     break;
                 case ButtonConstants.UP:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteUpPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalUpPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteUpPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalUpPress(eventData));
                     break;
                 case ButtonConstants.DOWN:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteDownPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalDownPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteDownPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalDownPress(eventData));
                     break;
                 case ButtonConstants.PLUS:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMotePlusPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalPlusPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMotePlusPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalPlusPress(eventData));
                     break;
                 case ButtonConstants.MINUS:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteMinusPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalMinusPress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteMinusPressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalMinusPress(eventData));
                     break;
                 case ButtonConstants.ONE:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteOnePressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalOnePress(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteOnePressHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalOnePress(eventData));
                     break;
             }
         }
@@ -384,39 +410,48 @@ namespace AssemblyCSharp {
             switch (button) {
                 case ButtonConstants.A:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteAPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalAPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteAPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalAPressUp(eventData));
                     break;
                 case ButtonConstants.B:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteBPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalBPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteBPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalBPressUp(eventData));
                     break;
                 case ButtonConstants.LEFT:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteLeftPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalLeftPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteLeftPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalLeftPressUp(eventData));
                     break;
                 case ButtonConstants.RIGHT:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteRightPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalRightPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteRightPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalRightPressUp(eventData));
                     break;
                 case ButtonConstants.UP:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteUpPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalUpPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteUpPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalUpPressUp(eventData));
                     break;
                 case ButtonConstants.DOWN:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteDownPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalDownPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteDownPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalDownPressUp(eventData));
                     break;
                 case ButtonConstants.PLUS:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMotePlusPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalPlusPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMotePlusPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalPlusPressUp(eventData));
                     break;
                 case ButtonConstants.MINUS:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteMinusPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalMinusPressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteMinusPressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalMinusPressUp(eventData));
                     break;
                 case ButtonConstants.ONE:
                     foreach (WiiGlobalReceiver w in buttonReceivers[button])
-                        ExecuteEvents.Execute<IGlobalWiiMoteOnePressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalOnePressUp(eventData));
+                        if (!w.module || w.module.Equals(this))
+                            ExecuteEvents.Execute<IGlobalWiiMoteOnePressUpHandler>(w.gameObject, eventData, (x, y) => x.OnGlobalOnePressUp(eventData));
                     break;
             }
 
