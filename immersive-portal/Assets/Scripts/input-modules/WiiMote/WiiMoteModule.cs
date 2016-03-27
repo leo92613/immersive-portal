@@ -34,6 +34,7 @@ namespace AssemblyCSharp {
 
         public static List<WiiGlobalReceiver> receivers = new List<WiiGlobalReceiver>();
 
+        [HideInInspector]
         public MasterStream stream;
         public string label;
         public Transform boundObject;
@@ -56,7 +57,9 @@ namespace AssemblyCSharp {
 
         // Use this for initialization
         void Start() {
+            stream = MasterStream.Instance;
             eventData.module = this;
+
 
             //initialize button pairings and global objects
             foreach (int button in buttons) {

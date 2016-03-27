@@ -5,9 +5,13 @@ namespace AssemblyCSharp
 	public class ObjectController : MonoBehaviour
 	{
 		public string label;
-		public MasterStream mStream;
+
+		[HideInInspector]
+        public MasterStream mStream;
+
 		public void Start ()
 		{
+            mStream = MasterStream.Instance;
 		}
 		public void Update() {
 			Vector3 position = mStream.getLiveObjectPosition(label);
