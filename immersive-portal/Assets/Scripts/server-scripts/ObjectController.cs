@@ -20,8 +20,8 @@ namespace AssemblyCSharp
 			SetBodyData(position, rotation);
 		}
 		public virtual void SetBodyData(Vector3 pos, Quaternion rot) {
-			this.transform.localPosition = pos;
-			this.transform.localRotation = rot;
+			if (!pos.Equals(Vector3.zero)) this.transform.localPosition = pos;
+			if (!rot.Equals(Quaternion.identity)) this.transform.localRotation = rot;
 		}
 	}
 }
