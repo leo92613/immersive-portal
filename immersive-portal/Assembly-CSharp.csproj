@@ -45,8 +45,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Room\makeRoom.cs" />
+     <Compile Include="Assets\Scripts\FingerRenderer.cs" />
+     <Compile Include="Assets\Scripts\HandInputController.cs" />
+     <Compile Include="Assets\Scripts\ObjectWithOffsetController.cs" />
      <Compile Include="Assets\Scripts\Singleton.cs" />
      <Compile Include="Assets\Scripts\UserInstantiator.cs" />
+     <Compile Include="Assets\Scripts\WandController.cs" />
      <Compile Include="Assets\Scripts\billboard\Billboard.cs" />
      <Compile Include="Assets\Scripts\billboard\BillboardBox.cs" />
      <Compile Include="Assets\Scripts\billboard\BillboardComponent.cs" />
