@@ -14,7 +14,7 @@ using update_protocol_v3;
 namespace Holojam
 {
 
-	public class MasterStream : MonoBehaviour
+	public class MasterStream : Singleton<MasterStream>
 	{
 		private class OtherMarker
 		{

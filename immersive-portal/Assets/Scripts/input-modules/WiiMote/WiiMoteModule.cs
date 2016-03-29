@@ -34,6 +34,7 @@ namespace Holojam {
 
         public static List<WiiGlobalReceiver> receivers = new List<WiiGlobalReceiver>();
 
+        [HideInInspector]
         public MasterStream stream;
         public string label;
 
@@ -55,7 +56,9 @@ namespace Holojam {
 
         // Use this for initialization
         void Start() {
+            stream = MasterStream.Instance;
             eventData.module = this;
+
 
             //initialize button pairings and global objects
             foreach (int button in buttons) {

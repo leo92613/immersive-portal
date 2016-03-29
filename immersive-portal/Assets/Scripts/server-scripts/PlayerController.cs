@@ -4,22 +4,25 @@ namespace Holojam
 {
 	public class PlayerController : MonoBehaviour
 	{
-		public string id;
+		public string label;
+        [HideInInspector]
 		public MasterStream mStream;
 		public Vector3 offset;
         public GameObject outofRangeVis;
 
         bool recentered = false;
 
-		private void Start() {}
+		private void Start() {
+            mStream = MasterStream.Instance;
+        }
 
 		private void Update() {
 			Vector3 cam_position = Vector3.zero;
 			Quaternion cam_rotation = Quaternion.identity;
 
 			if (mStream != null) {
-				cam_position = mStream.getLiveObjectPosition (id);
-				cam_rotation = mStream.getLiveObjectRotation (id);
+				cam_position = mStream.getLiveObjectPosition (label);
+				cam_rotation = mStream.getLiveObjectRotation (label);
 			}
 
 			Quaternion hmd_rotation = Quaternion.identity;
