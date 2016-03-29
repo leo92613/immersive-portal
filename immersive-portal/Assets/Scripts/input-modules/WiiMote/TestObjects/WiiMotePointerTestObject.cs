@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace AssemblyCSharp {
+namespace Holojam {
     public class WiiMotePointerTestObject : MonoBehaviour, IPointerWiiMoteHandler {
 
         public void OnAPressDown(WiiMoteEventData eventData) {

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
 
-namespace AssemblyCSharp {
+namespace Holojam {
 
     public class WiiMoteEventData : BaseEventData {
         public WiiMoteModule module;
@@ -36,7 +36,6 @@ namespace AssemblyCSharp {
 
         public MasterStream stream;
         public string label;
-        public Transform boundObject;
 
         public string interactTag;
         public float interactDistance = 10f;
@@ -78,7 +77,7 @@ namespace AssemblyCSharp {
 
         void Process() {
             this.UpdateLiveValues();
-            this.PositionBoundObject();
+            this.PositionTransform();
             this.CastRayFromBoundObject();
             this.UpdateCurrentObject();
             //this.PlaceCursor();
@@ -93,12 +92,9 @@ namespace AssemblyCSharp {
             //Debug.Log(loButtonBits);
         }
 
-        void PositionBoundObject() {
-            if (boundObject == null)
-                boundObject = this.transform;
-
-            boundObject.localPosition = this.loPosition;
-            boundObject.localRotation = this.loRotation;
+        void PositionTransform() {
+            transform.localPosition = this.loPosition;
+            transform.localRotation = this.loRotation;
         }
 
 
@@ -108,8 +104,8 @@ namespace AssemblyCSharp {
             hits.Clear();
 
             //CAST RAY
-            Vector3 v = boundObject.position;
-            Quaternion q = boundObject.rotation;
+            Vector3 v = transform.position;
+            Quaternion q = transform.rotation;
             ray = new Ray(v, q * Vector3.forward);
             hits.AddRange(Physics.RaycastAll(ray, interactDistance));
             eventData.previousRaycast = eventData.currentRaycast;

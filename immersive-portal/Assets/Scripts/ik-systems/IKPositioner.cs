@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace AssemblyCSharp {
+namespace Holojam {
 	public class IKPositioner : MonoBehaviour {
 		public List<Transform> IKtransforms;
 		private List<Transform> IKtransforms_old;

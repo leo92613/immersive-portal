@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-namespace AssemblyCSharp
+namespace Holojam
 {
 	public class PlayerController : MonoBehaviour
 	{

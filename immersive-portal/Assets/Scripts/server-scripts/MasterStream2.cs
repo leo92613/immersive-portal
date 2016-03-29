@@ -11,7 +11,7 @@ using System.IO;
 using ProtoBuf;
 using update_protocol_v3;
 
-namespace AssemblyCSharp
+namespace Holojam
 {
 
 	public class MasterStream2 : MonoBehaviour
