@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using System.Collections;
 
-namespace AssemblyCSharp
+namespace Holojam
 {
 	public class WandController : MonoBehaviour {
 		public MasterStream mstream;
