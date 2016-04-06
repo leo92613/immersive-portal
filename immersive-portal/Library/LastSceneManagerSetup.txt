@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Main.unity
+- path: Assets/UNOShader/UNLIT/Samples/Scenes/Unlit Demo.unity
   isLoaded: 1
   isActive: 1
